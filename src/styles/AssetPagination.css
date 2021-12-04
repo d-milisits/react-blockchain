@@ -1,0 +1,16 @@
+.asset-pagination {
+  display: flex;
+  margin: 15px 0;
+}
+.asset-pagination p {
+  cursor: pointer;
+  padding: 3.5px 10px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 3.5px;
+  transition: all 0.15s;
+}
+.asset-pagination .selected {
+  background-color: #0780802a;
+  color: #078080;
+}

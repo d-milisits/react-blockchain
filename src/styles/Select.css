@@ -1,0 +1,45 @@
+.select {
+  border: 2px solid #232323;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 0;
+  width: 85px;
+  cursor: pointer;
+  border-radius: 3.5px;
+  position: relative;
+  background-color: #fffffe;
+}
+.select .select-options {
+  background-color: #fffffe;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 135px;
+  border-radius: 3.5px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.034),
+    0 100px 80px rgba(0, 0, 0, 0.06);
+  transform: scale(0.925);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.15s;
+}
+.select .select-options.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.select .select-options p {
+  padding: 10.5px;
+  border-bottom: 1px solid #23232328;
+  padding-right: 15px;
+}
+.select .select-options p:hover {
+  background-color: #f8f8f6;
+}
+.select p {
+  font-weight: 500;
+  text-align: right;
+}
