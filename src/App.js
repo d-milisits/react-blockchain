@@ -1,6 +1,7 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import './App.css';
 import CornerNote from "./components/CornerNote";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CoinPage from "./Pages/CoinPage";
 import Homepage from "./Pages/Homepage";
@@ -16,6 +17,7 @@ function App() {
         </Routes>
         <CornerNote/>
       </div>
+      <Footer/>
     </BrowserRouter>
   );
 }

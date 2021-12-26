@@ -1,6 +1,21 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(7.5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .trending {
   padding: 25px 0;
   display: flex;
+  animation: fadeInUp;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  animation-duration: 0.55s;
+  animation-delay: 0.15s;
 }
 .trending .trending-item {
   height: 175px;
@@ -9,7 +24,26 @@
   border: 2px solid #232323;
   border-radius: 3.5px;
   padding: 15px;
-  /* background-color: #fffffe; */
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.trending .trending-item:hover {
+  margin-top: -4.5px;
+}
+.trending .trending-item:hover p,
+.trending .trending-item:hover h3,
+.trending .trending-item:hover span,
+.trending .trending-item:hover h2 {
+  transition: color 0.15s;
+  color: white !important;
+}
+.trending .trending-item.up:hover {
+  background-color: #078080;
+  border: 2px solid #078080;
+}
+.trending .trending-item.down:hover {
+  background-color: #f45c48;
+  border: 2px solid #f45c48;
 }
 .trending .trending-item:last-child {
   margin-right: 0;

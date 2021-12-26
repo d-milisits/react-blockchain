@@ -1,0 +1,93 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(7.5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.coin-info {
+  animation: fadeInUp;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  animation-duration: 0.55s;
+  animation-delay: 0.15s;
+}
+.coin-info a {
+  font-weight: 600;
+  color: rgb(244, 93, 72);
+}
+.coin-info .coin-info-intro {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+}
+.coin-info .coin-info-intro h1 {
+  margin: 0 15px;
+  font-size: 37.5px;
+  font-weight: 600;
+}
+.coin-info .coin-info-intro h2 {
+  color: #5b616e;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 5.5px;
+}
+.graph-ctr {
+  border: 2px solid #232323;
+  border-radius: 3.5px;
+}
+.graph-ctr .price-options-ctr {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 15px 0;
+  padding: 30px 30px 0 30px;
+}
+.graph-ctr .price-options-ctr .price-percentage-ctr {
+  display: flex;
+}
+.graph-ctr .price-options-ctr .price-percentage-ctr h5 {
+  font-size: 19.5px;
+  margin-left: 12.5px;
+  font-weight: 500;
+}
+.graph-ctr .graph {
+  padding: 30px;
+}
+.graph-ctr .price-options-ctr h2 {
+  font-size: 42.5px;
+  font-weight: 500;
+  margin-top: -7.5px;
+}
+.graph-ctr .price-options-ctr span {
+  font-size: 14.5px;
+  font-weight: 600;
+  margin: 0 7.5px;
+  cursor: pointer;
+}
+.coin-info-details {
+  border-top: 2px solid #232323;
+  padding: 30px;
+}
+.coin-info-details h3 {
+  margin-bottom: 20px;
+}
+.coin-info-details .coin-info-row {
+  display: flex;
+  margin-bottom: 30px;
+}
+.coin-info-details .link {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  cursor: pointer;
+}
+.coin-info-details .link p {
+  margin-left: 6.5px;
+  color: #078080;
+}
+#desc {
+  margin-top: 25px;
+}

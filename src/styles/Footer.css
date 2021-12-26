@@ -1,0 +1,9 @@
+footer {
+  width: 100vw;
+  border-top: 2px solid #232323;
+  height: 215px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin-top: 85px;
+}

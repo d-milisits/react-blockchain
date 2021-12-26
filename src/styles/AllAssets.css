@@ -1,16 +1,30 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(7.5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.assets-loaded {
+  animation: fadeInUp;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  animation-duration: 0.55s;
+  animation-delay: 0.15s;
+}
 .all-assets {
   width: 100%;
   border: 2px solid #232323;
   border-radius: 3.5px;
-  /* padding: 15px; */
-  /* background-color: #fffffe; */
 }
 .all-assets .all-assets-labels {
   width: 100%;
   display: flex;
   padding: 15px;
   border-bottom: 2px solid #232323;
-  margin-bottom: 15px;
 }
 .all-assets .all-assets-labels p {
   font-size: 11.5px;

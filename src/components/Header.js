@@ -15,8 +15,10 @@ const Header = () => {
 
    return (
       <div className="header">
-         <div style={{display: 'flex', alignItems: 'center'}}>
-            <FaReact size={21.5}/>
+         <div style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>
+            <div className="icon">
+               <FaReact size={21.5}/>
+            </div>
             <h2 onClick={() => navigate("/")}>react-blockchain</h2>
          </div>
          {/* <select onChange={(e) => setCurrency(e.target.value)}>

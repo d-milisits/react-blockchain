@@ -8,13 +8,14 @@ import CoinRow from './CoinRow';
 import { FaSearch } from "react-icons/fa";
 import AssetPagination from './AssetPagination';
 
-const AllAssets = () => {
+const AllAssets = ({loading}) => {
 
    // All Coins
    const [coins, setCoins] = useState([]);
-   const [loading, setLoading] = useState(false);
    // Filter state (Option)
    const [filterOption, setFilterOption] = useState('All');
+   // Coin Categories (Gainers/Losers);
+   const [coinCatOption, setCoinCatOption] = useState([]);
    // Filter state
    const [search, setSearch] = useState('');
    // Pagination State
@@ -25,11 +26,10 @@ const AllAssets = () => {
    const { currency } = CryptoState();
 
    const fetchCoins = async () => {
-      setLoading(true);
       //Destructure on load, as data will contain data in itself (data.data).
       const { data } = await axios.get(CoinList(currency));
       setCoins(data);
-      setLoading(false);
+      setCoinCatOption(data);
       console.log(data);
    }
 
@@ -39,22 +39,37 @@ const AllAssets = () => {
 
    // Search & filter by currency name or symbol.
    const handleSearch = () => {
-      return coins.filter((coin) => 
+      return coinCatOption.filter((coin) => 
          coin.name.toLowerCase().includes(search) || coin.symbol.toLowerCase().includes(search)
       )
    }
 
+   // Coin Categories (Gainers/Losers);
+   function changeCoinCategory(category) {
+      if (category === 'Gainers') {
+         setFilterOption("Gainers");
+         setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h > 0));
+      } else if (category === 'Losers') {
+         setFilterOption("Losers");
+         setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h < 0));
+      } else {
+         setFilterOption("All");
+         setCoinCatOption(coins);
+      }
+   }
+
    return (
-      <>
+      !loading ? 
+      <div className="assets-loaded">
       <div className="all-assets-options-ctr">
          <div className="all-assets-options">
-            <div onClick={()=>{setFilterOption("All")}}  className={`option ${filterOption === 'All' ? 'active' : ''}`}>
+            <div onClick={()=>{changeCoinCategory('All')}}  className={`option ${filterOption === 'All' ? 'active' : ''}`}>
                All Assets
             </div>
-            <div  onClick={()=>{setFilterOption("Gainers")}} className={`option ${filterOption === 'Gainers' ? 'active' : ''}`}>
+            <div  onClick={()=>{changeCoinCategory('Gainers')}} className={`option ${filterOption === 'Gainers' ? 'active' : ''}`}>
                Gainers
             </div>
-            <div onClick={()=>{setFilterOption("Losers")}} className={`option ${filterOption === 'Losers' ? 'active' : ''}`}>
+            <div onClick={()=>{changeCoinCategory('Losers')}} className={`option ${filterOption === 'Losers' ? 'active' : ''}`}>
                Losers
             </div>
          </div>
@@ -85,14 +100,15 @@ const AllAssets = () => {
             </div>
          </div>
          {
-            loading ? <p>LOADING...</p> : 
             handleSearch().slice((page-1) * 15, (page-1) * 15 + 15).map((coin, index) => {
                return <div onClick={() => navigate(`/coins/${coin.id}`)}><CoinRow key={coin.name} coin={coin}/></div>
             })
          }
       </div>
       <AssetPagination count={handleSearch().length/15} setPage={setPage}/>
-      </>
+      </div>
+      :
+      null
    )
 }
 

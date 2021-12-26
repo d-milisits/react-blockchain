@@ -1,8 +1,19 @@
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
 .header {
   width: 100%;
   padding: 25px 0;
   display: flex;
   justify-content: space-between;
+}
+.header .icon {
+  animation: rotating 5s linear infinite;
 }
 .header h2 {
   margin-left: 6.5px;

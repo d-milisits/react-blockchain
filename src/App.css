@@ -15,6 +15,9 @@ html {
   width: 1150px;
   margin: auto;
 }
+body {
+  overflow-x: hidden;
+}
 a {
   text-decoration: none;
 }

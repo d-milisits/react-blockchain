@@ -1,0 +1,42 @@
+.tooltip-info {
+  width: 225px;
+}
+.tooltip-info .tt-info-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3.5px;
+}
+.tooltip-info .tt-info-header .tt-info-hvr {
+  position: relative;
+}
+.tooltip-info .tt-info-header .tt-info-hvr .tooltip-details {
+  position: absolute;
+  top: 0;
+  left: 165%;
+  background-color: #232323;
+  width: 350px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.125s;
+  padding: 12.5px;
+  border-radius: 2.5px;
+  z-index: 1;
+}
+.tooltip-info .tt-info-header .tt-info-hvr .tooltip-details p {
+  color: white;
+  font-size: 15.5px;
+}
+.tooltip-info .tt-info-header .tt-info-hvr:hover .tooltip-details {
+  opacity: 1;
+  visibility: visible;
+  left: 150%;
+}
+.tooltip-info .tt-info-header h5 {
+  margin-right: 6.5px;
+  font-size: 15.5px;
+  opacity: 0.55;
+  margin-top: -1.5px;
+}
+.tooltip-info p {
+  font-size: 18.5px;
+}
