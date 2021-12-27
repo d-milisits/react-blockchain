@@ -40,3 +40,12 @@
 .tooltip-info p {
   font-size: 18.5px;
 }
+@media (max-width: 641px) {
+  .tooltip-info .tt-info-header .tt-info-hvr .tooltip-details {
+    width: 265px;
+    padding: 10px;
+  }
+  .tooltip-info .tt-info-header .tt-info-hvr .tooltip-details p {
+    font-size: 14.5px !important;
+  }
+}

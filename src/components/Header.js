@@ -10,9 +10,7 @@ const Header = () => {
    const navigate = useNavigate();
 
    const { currency, setCurrency } = CryptoState();
-
-   console.log(currency);
-
+   
    return (
       <div className="header">
          <div style={{display: 'flex', alignItems: 'center', cursor: 'pointer'}}>

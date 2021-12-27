@@ -7,6 +7,10 @@ import CoinPage from "./Pages/CoinPage";
 import Homepage from "./Pages/Homepage";
 
 function App() {
+
+  console.log('Thank you for taking the time to look in the console! Have no fear- all warnings and errors have been taken care of.');
+
+
   return (
     <BrowserRouter>
       <div className="App">

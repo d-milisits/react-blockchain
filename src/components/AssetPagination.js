@@ -16,7 +16,7 @@ const AssetPagination = ({count, setPage}) => {
             {
                num: i+1,
                selected: i === 0 ? true : false,
-               id: new Date().getTime()
+               id: `${ i }_${ new Date().getTime() }`
             }
          );
       }
@@ -40,7 +40,7 @@ const AssetPagination = ({count, setPage}) => {
       <div className="asset-pagination">
          {
             pages.map((num)=>{
-               return <p onClick={()=>{selectNum(num.num)}} className={`${num.selected ? 'selected' : ''}`}>{num.num}</p>
+               return <p key={num.id} onClick={()=>{selectNum(num.num)}} className={`${num.selected ? 'selected' : ''}`}>{num.num}</p>
             })
          }
       </div>

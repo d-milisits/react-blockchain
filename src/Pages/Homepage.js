@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import AllAssets from '../components/AllAssets'
 import Banner from '../components/Banner/Banner'
-import Loader from '../components/Loader';
 
 const Homepage = () => {
 

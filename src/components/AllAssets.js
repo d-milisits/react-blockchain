@@ -25,15 +25,15 @@ const AllAssets = ({loading}) => {
 
    const { currency, symbol } = CryptoState();
 
-   const fetchCoins = async () => {
-      //Destructure on load, as data will contain data in itself (data.data).
-      const { data } = await axios.get(CoinList(currency));
-      setCoins(data);
-      setCoinCatOption(data);
-      console.log(data);
-   }
-
    useEffect(() => {
+
+      const fetchCoins = async () => {
+         //Destructure on load, as data will contain data in itself (data.data).
+         const { data } = await axios.get(CoinList(currency));
+         setCoins(data);
+         setCoinCatOption(data);
+      }
+
       fetchCoins();
    }, [currency]);
 
@@ -102,8 +102,8 @@ const AllAssets = ({loading}) => {
             </div>
          </div>
          {
-            handleSearch().length ? handleSearch().slice((page-1) * 15, (page-1) * 15 + 15).map((coin, index) => {
-               return <div onClick={() => navigate(`/coins/${coin.id}`)}><CoinRow key={coin.name} coin={coin} symbol={symbol}/></div>
+            handleSearch().length ? handleSearch().slice((page-1) * 15, (page-1) * 15 + 15).map((coin) => {
+               return <div key={coin.id} onClick={() => navigate(`/coins/${coin.id}`)}><CoinRow key={coin.name} coin={coin} symbol={symbol}/></div>
             }) : 
             <div className="no-assets">
             <p>No results for "{search}"</p>

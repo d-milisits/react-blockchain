@@ -17,16 +17,14 @@ const CoinInfo = ({coin}) => {
 
    const { currency, symbol } = CryptoState();
 
-   const fetchHistoricalData = async () => {
-      const {data} = await axios.get(HistoricalChart(coin?.id, days, currency));
-      setHistoricalData(data.prices);
-   }
-
-   console.log(coin);
-   console.log(days);
-
    useEffect(() => {
+      const fetchHistoricalData = async () => {
+         const {data} = await axios.get(HistoricalChart(coin?.id, days, currency));
+         setHistoricalData(data.prices);
+      }
+
       fetchHistoricalData();
+
       // Sets current percentage change based on current date range selection on the chart.
       days === 1 ? setCurrentPerChange(coin?.market_data?.price_change_percentage_24h_in_currency?.usd) : days === 30 ? setCurrentPerChange(coin?.market_data?.price_change_percentage_30d_in_currency?.usd) : days === 90 ? setCurrentPerChange(coin?.market_data?.price_change_percentage_60d_in_currency?.usd) : setCurrentPerChange(coin?.market_data?.price_change_percentage_1y_in_currency?.usd)
    }, [currency, days, coin]);
@@ -34,7 +32,7 @@ const CoinInfo = ({coin}) => {
    return (
       <div className="coin-info">
          <div className="coin-info-intro">
-            <img src={coin?.image?.small}/>
+            <img alt={coin?.id} src={coin?.image?.small}/>
             <h1>{coin?.id?.charAt(0).toUpperCase() + coin?.id?.slice(1)}</h1>
             <h2>({coin?.symbol?.toUpperCase()}/{currency.toUpperCase()})</h2>
          </div>

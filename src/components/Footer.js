@@ -6,7 +6,7 @@ const Footer = () => {
    return (
       <footer>
          <div className="footer-content">
-            <div style={{display: 'flex', cursor: 'pointer'}}>
+            <div style={{display: 'flex'}}>
                <div className="icon">
                   <FaReact size={21.5}/>
                </div>
@@ -16,13 +16,13 @@ const Footer = () => {
                </div>
             </div>
             <div id="links">
-               <a href="https://www.linkedin.com/in/daniel-milisits/" target="_blank">
+               <a href="https://www.linkedin.com/in/daniel-milisits/" target="_blank" rel="noreferrer">
                   <div className="link">
                      <FaLinkedin size={19}/>
                      <p>Dan's LinkedIn</p>
                   </div>
                </a>
-               <a href="https://github.com/d-milisits" target="_blank">
+               <a href="https://github.com/d-milisits" target="_blank" rel="noreferrer">
                   <div className="link">
                      <FaGithubSquare size={19}/>
                      <p>Dan's Github</p>

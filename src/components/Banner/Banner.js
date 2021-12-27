@@ -17,15 +17,17 @@ const Banner = ({loading, setLoading}) => {
 
    const navigate = useNavigate();
 
-   const fetchTrendingCoins = async () => {
-      const {data} = await axios.get(TrendingCoins(currency));
-      setTrending(data);
-      setLoading(false);
-   }
-
    useEffect(() => {
+
+      const fetchTrendingCoins = async () => {
+         const {data} = await axios.get(TrendingCoins(currency));
+         setTrending(data);
+         setLoading(false);
+      }
+
       fetchTrendingCoins();
-   }, [currency])
+
+   }, [currency, setLoading])
 
    return (
       !loading ? 

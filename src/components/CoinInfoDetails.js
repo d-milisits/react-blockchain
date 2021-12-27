@@ -31,13 +31,13 @@ const CoinInfoDetails = ({coin}) => {
             <TooltipInfo heading="Percent Change (7d)" text={coin?.market_data?.price_change_percentage_7d_in_currency?.usd} type='percent' desc={descObj.pcWeek}/>
          </div>
          <h3>About This Coin</h3>
-         <a style={{opacity: coin?.links?.homepage ? '1' : '.45'}} href={coin?.links?.homepage?.[0]} target="_blank">
+         <a style={{opacity: coin?.links?.homepage ? '1' : '.45'}} href={coin?.links?.homepage?.[0]} target="_blank" rel="noreferrer">
             <div className="link">
                <BsGlobe size={20} style={{opacity: '.55'}} />
                <p>Official Website</p>
             </div>
          </a>
-         <a href={coin?.links?.subreddit_url} target="_blank">
+         <a href={coin?.links?.subreddit_url} target="_blank" rel="noreferrer">
             <div className="link" style={{opacity: coin?.links?.subreddit_url ? '1' : '.25'}}>
                <BsReddit size={20} style={{opacity: '.55'}} />
                <p>Official Sub-Reddit</p>

@@ -1,11 +1,9 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
-import CallToAction from '../components/CallToAction';
 import CoinInfo from '../components/CoinInfo';
 import Loader from '../components/Loader';
 import { SingleCoin } from '../config/api';
-import { CryptoState } from '../CryptoContext';
 
 const CoinPage = () => {
 
@@ -15,25 +13,22 @@ const CoinPage = () => {
 
    const [loading, setLoading] = useState(true);
 
-   const {currency, symbol} = CryptoState();
-
-   console.log(coin);
-
-   const fetchCoin = async () => {
-      const { data } = await axios.get(SingleCoin(id));
-      setCoin(data);
-      setLoading(false);
-   }
-
    useEffect(() => {
+
+      const fetchCoin = async () => {
+         const { data } = await axios.get(SingleCoin(id));
+         setCoin(data);
+         setLoading(false);
+      }
+
       fetchCoin();
-   }, [])
+      
+   }, [id])
 
    return (
       !loading ? 
       <>
       <CoinInfo coin={coin}/>
-      {/* <CallToAction/> */}
       </>
       :
       <Loader/>
