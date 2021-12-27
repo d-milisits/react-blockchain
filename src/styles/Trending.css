@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 .trending .trending-item:hover {
-  margin-top: -4.5px;
+  transform: translateY(-4.5px);
 }
 .trending .trending-item:hover p,
 .trending .trending-item:hover h3,

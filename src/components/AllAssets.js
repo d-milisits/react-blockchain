@@ -96,8 +96,6 @@ const AllAssets = ({loading}) => {
             if (item === obj) {
                console.log(item);
                item.order === 'desc' ? item.order = 'asc' : item.order = 'desc';
-               // item.order = 'asc';
-               console.log(item);
             }
             return item
          })
