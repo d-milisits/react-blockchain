@@ -135,4 +135,7 @@
   .all-assets-options-ctr .all-assets-search input {
     width: 100%;
   }
+  .no-assets {
+    padding: 50px 25px;
+  }
 }
