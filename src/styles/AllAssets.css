@@ -43,6 +43,7 @@
   max-width: 115px;
   text-align: right;
   margin-right: 16.5px;
+  cursor: pointer;
 }
 .all-assets-options-ctr {
   display: flex;

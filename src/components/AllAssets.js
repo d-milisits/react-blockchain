@@ -58,6 +58,52 @@ const AllAssets = ({loading}) => {
       }
    }
 
+   //List of column objects used to display column IDs and sort.
+   const [colNamObj, setColNamObj] = useState([
+      {
+         title: 'PRICE',
+         order: 'desc',
+         apiKey: 'current_price'
+      },
+      {
+         title: '% CHANGE',
+         order: 'desc',
+         apiKey: 'price_change_percentage_24h'
+      },
+      {
+         title: 'SUPPLY',
+         order: 'desc',
+         apiKey: 'circulating_supply'
+      },
+      {
+         title: 'MKT. CAP',
+         order: 'desc',
+         apiKey: 'market_cap'
+      },
+      {
+         title: 'VOLUME',
+         order: 'desc',
+         apiKey: 'total_volume'
+      }
+   ])
+
+   function sortByCoinCategory(obj) {
+      const tempArr = handleSearch().sort((a, b) => obj.order === 'asc' ? (a[obj.apiKey] - b[obj.apiKey]) : (b[obj.apiKey] - a[obj.apiKey]));
+      setCoinCatOption(tempArr);
+      // Change order after sort code is executed.
+      setColNamObj(
+         [...colNamObj].map((item) => {
+            if (item === obj) {
+               console.log(item);
+               item.order === 'desc' ? item.order = 'asc' : item.order = 'desc';
+               // item.order = 'asc';
+               console.log(item);
+            }
+            return item
+         })
+      );
+   }
+
    return (
       !loading ? 
       <div className="assets-loaded">
@@ -83,21 +129,11 @@ const AllAssets = ({loading}) => {
             <div className="name">
                <p>NAME</p>
             </div>
-            <div className="col">
-               <p>PRICE</p>
-            </div>
-            <div className="col">
-               <p>% CHANGE</p>
-            </div>
-            <div className="col">
-               <p>SUPPLY</p>
-            </div>
-            <div className="col">
-               <p>MKT. CAP</p>
-            </div>
-            <div className="col">
-               <p>VOLUME</p>
-            </div>
+            {
+               colNamObj.map(obj => {
+                  return <div onClick={()=>{sortByCoinCategory(obj)}} className="col"><p>{obj.title}</p></div>
+               })
+            }
             <div style={{width: '73.08px', marginLeft: '25px'}}>
             </div>
          </div>
