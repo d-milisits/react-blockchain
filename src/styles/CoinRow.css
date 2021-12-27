@@ -28,10 +28,17 @@
   display: flex;
   align-items: center;
   width: 315px;
+  min-width: 315px;
+  max-width: 315px;
+}
+.coin-row .coin-name .name-symbol {
+  display: flex;
+  align-items: center;
 }
 .coin-row .col {
-  /* background-color: red; */
   width: 115px;
+  min-width: 115px;
+  max-width: 115px;
   text-align: right;
   margin-right: 16.5px;
 }
@@ -43,4 +50,45 @@
   border-radius: 3.5px;
   font-size: 15px;
   margin-left: 25px;
+  cursor: pointer;
+}
+.mobile-prices {
+  display: none;
+  text-align: right;
+}
+.mobile-prices #perc-change {
+  font-size: 13px;
+}
+@media (max-width: 641px) {
+  .coin-row {
+    padding: 7.5px 0px 7.5px 0px;
+  }
+  .coin-row .name {
+    margin: 0 !important;
+  }
+  .coin-row .coin-name {
+    width: fit-content;
+    min-width: fit-content;
+    max-width: fit-content;
+  }
+  .coin-row .coin-name .name-symbol {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 11.5px;
+  }
+  .coin-row .coin-name .name-symbol #symbol {
+    font-size: 13px;
+    opacity: 0.5 !important;
+  }
+  .coin-row .col,
+  .coin-row button {
+    display: none;
+  }
+  .coin-row {
+    justify-content: space-between;
+  }
+  .coin-row .mobile-prices {
+    display: block;
+    padding-right: 4px;
+  }
 }

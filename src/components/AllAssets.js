@@ -23,7 +23,7 @@ const AllAssets = ({loading}) => {
    
    const navigate = useNavigate();
 
-   const { currency } = CryptoState();
+   const { currency, symbol } = CryptoState();
 
    const fetchCoins = async () => {
       //Destructure on load, as data will contain data in itself (data.data).
@@ -75,10 +75,10 @@ const AllAssets = ({loading}) => {
          </div>
          <div className="all-assets-search">
             <FaSearch size={15} style={{opacity: '.25'}}/>
-            <input onChange={(e)=>{setPage(1); setSearch(e.target.value)}} placeholder="Search for any asset..."/>
+            <input value={search} onChange={(e)=>{setPage(1); setSearch(e.target.value)}} placeholder="Search for any asset..."/>
          </div>
       </div>
-      <div className="all-assets">
+      <div className="all-assets" id="all-assets">
          <div className="all-assets-labels">
             <div className="name">
                <p>NAME</p>
@@ -98,11 +98,17 @@ const AllAssets = ({loading}) => {
             <div className="col">
                <p>VOLUME</p>
             </div>
+            <div style={{width: '73.08px', marginLeft: '25px'}}>
+            </div>
          </div>
          {
-            handleSearch().slice((page-1) * 15, (page-1) * 15 + 15).map((coin, index) => {
-               return <div onClick={() => navigate(`/coins/${coin.id}`)}><CoinRow key={coin.name} coin={coin}/></div>
-            })
+            handleSearch().length ? handleSearch().slice((page-1) * 15, (page-1) * 15 + 15).map((coin, index) => {
+               return <div onClick={() => navigate(`/coins/${coin.id}`)}><CoinRow key={coin.name} coin={coin} symbol={symbol}/></div>
+            }) : 
+            <div className="no-assets">
+            <p>No results for "{search}"</p>
+            <button onClick={()=>setSearch('')}>Clear Search</button>
+            </div>
          }
       </div>
       <AssetPagination count={handleSearch().length/15} setPage={setPage}/>

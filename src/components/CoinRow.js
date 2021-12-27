@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/CoinRow.css'
 
-const CoinRow = ({coin}) => {
+const CoinRow = ({coin, symbol}) => {
 
    // Simple function to return M > 1Million, K < 1Million, B > 1Billion.
    function numFormatter(num) {
@@ -22,15 +22,21 @@ const CoinRow = ({coin}) => {
       <div className="coin-row">
          <div className="coin-name">
             <img src={coin.image} alt={coin.name}/>
-            <p className="name">{coin.name}</p>
-            <p style={{opacity: '.375'}}>{coin.symbol.toUpperCase()}</p>
+            <div className="name-symbol">
+               <p className="name">{coin.name}</p>
+               <p id="symbol" style={{opacity: '.375'}}>{coin.symbol.toUpperCase()}</p>
+            </div>
          </div>
-         <p className="col">${coin.current_price.toFixed(2)}</p>
+         <p className="col">{symbol}{coin.current_price.toFixed(2)}</p>
          <p className="col" style={{color: coin.price_change_percentage_24h > 0 ? '#078080' : '#f45d48'}}>{coin.price_change_percentage_24h > 0 ? '+' : ''}{coin.price_change_percentage_24h.toFixed(2)}%</p>
          <p style={{opacity: coin.circulating_supply ? '1' : '.375', fontStyle: coin.circulating_supply ? 'inherit' : 'italic'}} className="col">{numFormatter(coin.circulating_supply) ?? 'Unknown'}</p>
          <p style={{opacity: coin.market_cap ? '1' : '.375', fontStyle: coin.market_cap ? 'inherit' : 'italic'}} className="col">{numFormatter(coin.market_cap) ?? 'Unknown'}</p>
          <p style={{opacity: coin.market_cap ? '1' : '.375', fontStyle: coin.market_cap ? 'inherit' : 'italic'}} className="col">{numFormatter(coin.total_volume) ?? 'Unknown'}</p>
          <button>Graph</button>
+         <div className="mobile-prices">
+            <p>{symbol}{coin.current_price.toFixed(2)}</p>
+            <p id="perc-change" style={{color: coin.price_change_percentage_24h > 0 ? '#078080' : '#f45d48'}}>{coin.price_change_percentage_24h > 0 ? '+' : ''}{coin.price_change_percentage_24h.toFixed(2)}%</p>
+         </div>
       </div>
    )
 }

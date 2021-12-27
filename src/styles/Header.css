@@ -23,3 +23,9 @@
   background-color: transparent;
   margin-right: 25px;
 }
+@media (max-width: 641px) {
+  .header h2 {
+    font-size: 19.5px;
+    margin-top: -3px;
+  }
+}

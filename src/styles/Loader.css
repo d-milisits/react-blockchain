@@ -9,8 +9,6 @@
   align-items: center;
 }
 .loader {
-  width: 100px;
-  height: 100px;
   border-radius: 100%;
   position: relative;
   margin: 0 auto;
@@ -23,19 +21,15 @@
   background-color: #078080;
   margin: 35px 3.5px;
 }
-
 #loader-2 span:nth-child(1) {
   animation: bounce 0.75s ease-in-out infinite;
 }
-
 #loader-2 span:nth-child(2) {
   animation: bounce 0.75s ease-in-out 0.33s infinite;
 }
-
 #loader-2 span:nth-child(3) {
   animation: bounce 0.75s ease-in-out 0.66s infinite;
 }
-
 @keyframes bounce {
   0%,
   75%,
@@ -51,5 +45,12 @@
     -ms-transform: translateY(-10px);
     -o-transform: translateY(-10px);
     transform: translateY(-10px);
+  }
+}
+@media (max-width: 641px) {
+  #loader-2 span {
+    width: 10.5px;
+    height: 10.5px;
+    margin: 35px 2.5px;
   }
 }

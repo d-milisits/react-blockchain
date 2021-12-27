@@ -6,7 +6,7 @@ const CornerNote = () => {
    return (
       <div className="corner-note">
          <img src={logo} alt="react" />
-         <p>Made with React.js</p>
+         <p>React.js App by: Dan Milisits</p>
       </div>
    )
 }

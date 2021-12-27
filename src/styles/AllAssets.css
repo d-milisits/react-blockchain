@@ -19,6 +19,7 @@
   width: 100%;
   border: 2px solid #232323;
   border-radius: 3.5px;
+  overflow-x: auto;
 }
 .all-assets .all-assets-labels {
   width: 100%;
@@ -33,9 +34,13 @@
 }
 .all-assets .all-assets-labels .name {
   width: 315px;
+  min-width: 315px;
+  max-width: 315px;
 }
 .all-assets .all-assets-labels .col {
   width: 115px;
+  min-width: 115px;
+  max-width: 115px;
   text-align: right;
   margin-right: 16.5px;
 }
@@ -85,4 +90,49 @@
 .all-assets-options .option.active {
   background-color: #0780802a;
   color: #078080;
+}
+.no-assets {
+  padding: 75px 25px;
+  text-align: center;
+}
+.no-assets p {
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+.no-assets button {
+  background-color: #078080;
+  color: white;
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 2.5px;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 1066px) {
+  .all-assets .all-assets-labels {
+    width: max-content;
+  }
+}
+@media (max-width: 641px) {
+  .all-assets .all-assets-labels {
+    display: none;
+  }
+  .all-assets {
+    border: none;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #23232315;
+  }
+  .all-assets-options-ctr {
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 2px solid #23232315;
+    margin-bottom: 7.5px;
+  }
+  .all-assets-options-ctr .all-assets-search {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .all-assets-options-ctr .all-assets-search input {
+    width: 100%;
+  }
 }

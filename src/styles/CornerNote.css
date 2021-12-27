@@ -18,3 +18,9 @@
   font-weight: 400;
   color: #fffffe;
 }
+@media (max-width: 641px) {
+  .corner-note {
+    bottom: 10px;
+    right: 10px;
+  }
+}

@@ -9,6 +9,7 @@
   border-radius: 3.5px;
   position: relative;
   background-color: #fffffe;
+  z-index: 1;
 }
 .select .select-options {
   background-color: #fffffe;

@@ -15,7 +15,7 @@ const CoinInfo = ({coin}) => {
    const [days, setDays] = useState(1);
    const [currentPerChange, setCurrentPerChange] = useState();
 
-   const { currency } = CryptoState();
+   const { currency, symbol } = CryptoState();
 
    const fetchHistoricalData = async () => {
       const {data} = await axios.get(HistoricalChart(coin?.id, days, currency));
@@ -35,17 +35,17 @@ const CoinInfo = ({coin}) => {
       <div className="coin-info">
          <div className="coin-info-intro">
             <img src={coin?.image?.small}/>
-            <h1>{coin?.id?.charAt(0).toUpperCase() + coin?.id?.slice(1)} Price</h1>
+            <h1>{coin?.id?.charAt(0).toUpperCase() + coin?.id?.slice(1)}</h1>
             <h2>({coin?.symbol?.toUpperCase()}/{currency.toUpperCase()})</h2>
          </div>
          <div className="graph-ctr">
             <div className="price-options-ctr">
                <div className="price-percentage-ctr">
-                  <h2>{coin?.market_data?.current_price?.[currency.toLowerCase()].toFixed(2)}</h2>
+                  <h2>{symbol}{coin?.market_data?.current_price?.[currency.toLowerCase()].toFixed(2)}</h2>
                   <h5 style={{color: currentPerChange > 0 ? '#078080' : 'rgb(244, 93, 72)'}}>{currentPerChange > 0 ? '+' : ''}{currentPerChange?.toFixed(2)}%</h5>
                </div>
                {/* BUTTONS TO SELECT FILTER */}
-               <div>
+               <div id="timeline-select">
                   {
                      chartDays.map(day => (
                         <TimelineSelect 

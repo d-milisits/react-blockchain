@@ -2,7 +2,7 @@ import React from 'react'
 import { FaInfoCircle } from "react-icons/fa";
 import '../styles/TooltipInfo.css';
 
-const TooltipInfo = ({heading, text, type}) => {
+const TooltipInfo = ({heading, text, type, desc}) => {
 
    // Simple function to return M > 1Million, K < 1Million, B > 1Billion.
    function numFormatter(num) {
@@ -26,7 +26,7 @@ const TooltipInfo = ({heading, text, type}) => {
             <div className="tt-info-hvr">
                <FaInfoCircle className="hvr" style={{opacity: .4, cursor: 'pointer'}} size={13}/>
                <div className="tooltip-details">
-                  <p>Crypto market capitalization is the total value of a cryptocurrency. Where stock market capitalization is calculated by multiplying share price times shares outstanding, crypto market capitalization is calculated by multiplying the price of the cryptocurrency with the number of coins in circulation.</p>
+                  <p>{desc}</p>
                </div>
             </div>
          </div>
