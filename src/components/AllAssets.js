@@ -48,10 +48,10 @@ const AllAssets = ({loading}) => {
    function changeCoinCategory(category) {
       if (category === 'Gainers') {
          setFilterOption("Gainers");
-         setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h > 0));
+         setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h > 0).sort((a,b) => b.price_change_percentage_24h - a.price_change_percentage_24h));
       } else if (category === 'Losers') {
          setFilterOption("Losers");
-         setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h < 0));
+         setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h < 0).sort((a,b) => a.price_change_percentage_24h - b.price_change_percentage_24h));
       } else {
          setFilterOption("All");
          setCoinCatOption(coins);
