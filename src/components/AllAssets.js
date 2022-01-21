@@ -48,11 +48,14 @@ const AllAssets = ({loading}) => {
    function changeCoinCategory(category) {
       if (category === 'Gainers') {
          setFilterOption("Gainers");
+         // Filter by positive 24hr change value and sort by desc.
          setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h > 0).sort((a,b) => b.price_change_percentage_24h - a.price_change_percentage_24h));
       } else if (category === 'Losers') {
          setFilterOption("Losers");
+         // Filter by negative 24hr change value and sort by desc.
          setCoinCatOption(coins.filter(coin => coin.price_change_percentage_24h < 0).sort((a,b) => a.price_change_percentage_24h - b.price_change_percentage_24h));
       } else {
+         // Reset initial page-load value.
          setFilterOption("All");
          setCoinCatOption(coins);
       }
