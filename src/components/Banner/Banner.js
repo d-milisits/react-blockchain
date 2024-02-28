@@ -9,7 +9,7 @@ import Loader from "../Loader";
 const Banner = ({ loading, setLoading, setAppError }) => {
   const [trending, setTrending] = useState([]);
 
-  // Bool value used to increase slice target for mobile trending display.
+  // Bool value used to increase slice target. Only visible on mobile.
   const [seeMore, setSeeMore] = useState(false);
 
   const { currency } = CryptoState();
@@ -30,7 +30,7 @@ const Banner = ({ loading, setLoading, setAppError }) => {
     };
 
     fetchTrendingCoins();
-  }, [currency, setLoading]);
+  }, [currency, setLoading, setAppError]);
 
   return !loading && trending.length > 0 ? (
     <>
