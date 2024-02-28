@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# About
 
                       This is a cool little project I whipped up during one of
                       my deep dives into the blockchain world. It's a slick way
@@ -16,3 +16,4 @@ To run this project, you will need to add your own `REACT_APP_API_KEY` from the 
    ```
    REACT_APP_API_KEY=your_api_key
    ```
+Here's a link you might find useful: https://support.coingecko.com/hc/en-us/articles/21880397454233-User-Guide-How-to-sign-up-for-CoinGecko-Demo-API-and-generate-an-API-key
